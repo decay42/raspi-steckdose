@@ -16,8 +16,8 @@ class Steckdose(object):
     def _switch(self, switch):
         # switch: 0 = off, 1 = on
         cmd = '%s %s %s %d' % (sendPath, self.systemcode, self.unitcode, switch)
-        print cmd
-        #os.system(cmd)
+        #print cmd
+        os.system(cmd)
 
 if __name__ == '__main__':
     import sys
