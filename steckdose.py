@@ -1,4 +1,4 @@
-import os
+import os, time
 
 sendPath = '/home/pi/raspberry-remote/send'
 
@@ -15,8 +15,9 @@ class Steckdose(object):
 
     def _switch(self, switch):
         # switch: 0 = off, 1 = on
-        cmd = '%s %s %s %d' % (sendPath, self.systemcode, self.unitcode, switch)
-        #print cmd
+        for i in range(4):
+            cmd = '%s -s -p 4 %s %s %d' % (sendPath, self.systemcode, self.unitcode, switch)
+            time.sleep(0.05)
         os.system(cmd)
 
 if __name__ == '__main__':
